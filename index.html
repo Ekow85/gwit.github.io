@@ -32,18 +32,16 @@
   <body>
     <div data-role="page" id="home">
 
-			<div data-role="panel" id="weatherpanel" data-display="push" data-theme="a">
-				<h3></h3>
-				<p class="weather">
-				</p>
+			<div data-role="panel" id="slide-menu" data-display="push" data-theme="a">
+				<h3>menu header</h3>
 				<p>
 				<a data-rel="close" data-role="button" data-corner="false" data-theme="a">close</a>
 				</p>
 			</div>
 
             <div data-role="header">
-				<a href="#weatherpanel" data-icon="bars" data-iconpos="notext" class="ui-btn-right">Weather</a>
-                <h1>this get cool</h1>
+				<a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-btn-right"></a>
+                <h2>header</h2>
             </div>
             
             <div data-role="content">
@@ -59,12 +57,6 @@
 		  </div>
 		</div>
 	      </p>
-		<div style='text-align:center;padding-top:20px;'>
-		  
-		  <button onclick='mySwipe.next()'>next</button> 
-		  <button onclick='mySwipe.prev()'>prev</button>
-
-		</div>
 
         	    <div class="ui-grid-a">
             	      <div class="ui-block-a">
@@ -74,6 +66,25 @@
                         <a data-role="button" data-corners="false" href="#page1">Button</a>
             	      </div>
         	    </div>
+
+		    <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+		      <div data-role="collapsible">
+			<h3>
+			    Section Header
+			</h3>
+		      </div>
+                      <div data-role="collapsible">
+                        <h3>
+                            Section Header
+                        </h3>
+                        <div data-controltype="textblock">
+                          <p>
+                            Enter content here... Enter content here...
+Enter content here...Enter content here...Enter content here...vEnter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...vvEnter content here...vvEnter content here...v
+                          </p>
+                        </div>
+                     </div>
+                   </div>
 
             </div>
             
