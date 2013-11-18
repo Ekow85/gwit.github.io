@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" href="custom_icon.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <link href='style.css' rel='stylesheet'/>
 	<style>
 
@@ -41,51 +41,44 @@
   <title></title> 
   </head>
   <script type="text/javascript">      
-    function initialize() {
-        var myOptions = {
-            zoom: 6,          
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
-	if(navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);
+   // function initialize() {
+       // var myOptions = {
+            //center: new google.maps.LatLng(6.687000, -1.622458),           
+            // zoom: 6,          
+          //   mapTypeId: google.maps.MapTypeId.ROADMAP
+       // };         
+       // var map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+	//navigator.geolocation.getCurrentPosition(function(position) {
+      	//var pos = new google.maps.LatLng(position.coords.latitude,
+       //                                position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
-        position: pos,
-        content: 'Location found using HTML5.'
-      });
+     // var infowindow = new google.maps.InfoWindow({
+      //  map: map,
+      //  position: pos,
+       // content: 'Location found using HTML5.'
+      //});
 
-      map.setCenter(pos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
-}
-	function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
-
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(5.477249, -0.175781),
-    content: content
-  };
-
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
-}        
-    }     
+     // map.setCenter(pos);
+    //}, function() {
+    //  handleNoGeolocation(true);
+    //});
+    //}   
+    function geolocate()
+        {
+            if (typeof(navigator.geolocation) !== 'undefined')
+            {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    alert(position.coords.latitude + ', ' + position.coords.longitude);
+                });
+            }
+            else
+            {
+                alert('Your browser does not support geolocation!');
+            }
+        }
+  
  </script> 
-  <body onload="initialize()">
+  <body onload="geolocate()">
     <div data-role="page" id="stay-home">
 
 	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
@@ -118,6 +111,9 @@
 		  </div>
 		</div>
 	      </p>
+<!-- divider -->
+	      <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+
         	    <div class="ui-grid-a">
             	      <div class="ui-block-a">
                         <a data-role="button" data-corners="false" href="#home">Book</a>
@@ -133,7 +129,7 @@
 			    Section Header
 			</h3>
                           <p>
-                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur adipiscing dignissim. Aenean lectus erat, ornare ultrices pharetra ac, dignissim vel lacus. Vivamus turpis ante, lacinia placerat ultrices non, suscipit at arcu. Nullam ut fringilla eros.
+                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur adipiscing dignissim. Aenean lectus erat, ornare ultrices pharetra ac, dignissim vel lacus. Vivamus turpis ante, lacinia placerat ultrices non, suscipit at arcu. Nullam ut fringilla eros. Curabitur tincidunt mollis libero cursus feugiat. Pellentesque tincidunt leo lectus, at feugiat sapien. In dignissim, risus vel faucibus sodales, mauris tortor imperdiet lorem, faucibus porta neque nulla facilisis urna. Donec risus leo, cursus vel cursus vel, luctus ut eros.
                           </p>
 		      </div>
                       <div data-role="collapsible">
@@ -214,8 +210,7 @@
 
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>    
-<script src="app.js"></script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->    
 <script src='swipe.js'></script>
 <script>
 // pure JS
