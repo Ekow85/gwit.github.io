@@ -30,14 +30,19 @@
   <title></title> 
   </head> 
   <body>
-    <div data-role="page" id="home">
+    <div data-role="page" id="stay-home">
 
-			<div data-role="panel" id="slide-menu" data-display="push" data-theme="a">
-				<h3>menu header</h3>
-				<p>
-				<a data-rel="close" data-role="button" data-corner="false" data-theme="a">close</a>
-				</p>
-			</div>
+	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+	      <h3>menu header</h3>
+		<a href="#discover" data-role="button" data-corner="false" data-theme="a">Discover</a>
+		<a href="#stay-home" data-role="button" data-corner="false" data-theme="a">Stay</a>
+		<a href="" data-role="button" data-corner="false" data-theme="a">Plan</a>
+		<a href="#stay-home" data-role="button" data-corner="false" data-theme="a">Account</a>
+		<a href="#stay-home" data-role="button" data-corner="false" data-theme="a">Preference</a>
+	        <p>
+		  <a data-rel="close" data-role="button" data-corner="false" data-theme="a">close</a>
+		</p>
+	    </div>
 
             <div data-role="header">
 				<a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-btn-right"></a>
@@ -49,21 +54,20 @@
               <p>
                 <div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
 		  <div class='swipe-wrap'>
-		    <div><b>0</b></div>
-		    <div><b>17</b></div>
-		    <div><b>18</b></div>
-		    <div><b>19</b></div>
-		    <div><b>20</b></div>
+		    <div><b>swipe here &gt </b></div>
+		    <div><b>swipe again</b></div>
+		    <div><b>1</b></div>
+		    <div><b>2</b></div>
+		    <div><b>3</b></div>
 		  </div>
 		</div>
 	      </p>
-
         	    <div class="ui-grid-a">
             	      <div class="ui-block-a">
-                        <a data-role="button" data-corners="false" href="#page1">Button</a>
+                        <a data-role="button" data-corners="false" href="#home">Book</a>
             	      </div>
             	      <div class="ui-block-b">
-                        <a data-role="button" data-corners="false" href="#page1">Button</a>
+                        <a data-role="button" data-corners="false" href="#stay-home">Listen</a>
             	      </div>
         	    </div>
 
@@ -80,7 +84,7 @@
                         <div data-controltype="textblock">
                           <p>
                             Enter content here... Enter content here...
-Enter content here...Enter content here...Enter content here...vEnter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...vvEnter content here...vvEnter content here...v
+Enter content here...Enter content here...Enter content here...vEnter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...Enter content here...vvEnter content here...
                           </p>
                         </div>
                      </div>
@@ -93,9 +97,48 @@ Enter content here...Enter content here...Enter content here...vEnter content he
             </div>
 
         </div>
+
+<!-- home page start-->
+	<div data-role="page" id="discover">
+            
+            <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+	      <h3>menu header</h3>
+		<a href="#discover" data-role="button" data-corner="false" data-theme="a">Discover</a>
+		<a href="#stay-home" data-role="button" data-corner="false" data-theme="a">Stay</a>
+		<a href="" data-role="button" data-corner="false" data-theme="a">Plan</a>
+		<a href="#stay-home" data-role="button" data-corner="false" data-theme="a">Account</a>
+		<a href="#stay-home" data-role="button" data-corner="false" data-theme="a">Preference</a>
+	        <p>
+	          <a data-rel="close" data-role="button" data-corner="false" data-theme="a">close</a>
+		</p>
+	    </div>
+
+            <div data-role="header">
+				<a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-btn-right"></a>
+                <h2>home header</h2>
+            </div>
+            
+            <div data-role="content">
+                <div data-role="" href="">
+		  <p>this first</p>
+		</div>
+		<div data-role="" href="">
+		  <p>this second</p>
+		</div>
+		<div data-role="" href="">
+		  <p>this third</p>
+		</div>
+            </div>
+            
+            <div data-role="footer">
+                <h4>footer here</h4>
+            </div>
+
+        </div>
+
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>        
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->    
 <script src="app.js"></script>
 <script src='swipe.js'></script>
 <script>
