@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>DISCOVER</title> 
+	<title>PLAN</title> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 	<style>
 .segmented-control { text-align:center; }
@@ -80,35 +80,22 @@ JQM.geo = {
 <body> 
   	<div data-role="page" id="plan" data-url="plan">
         
-          <!-- menu-bar begin -->
-            <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+<!-- begin slide panel -->
+	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+	      <h3>header</h3>
+		<a href="index.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
+		<a data-rel="stay.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
+		<a data-rel="close" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
+		<a href="#" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Account</a>
+		<a href="#" data-icon="gear" data-role="button" data-corners="false" data-theme="a">Preference</a>
+	        <p>
+		</p>
+	    </div>
+<!-- end slide panel -->
 
-		<ul data-role="listview" data-inset="false">
-	          <li data-role="list-divider" role="heading">
-                    header
-                  </li>
-		  <li data-theme="a" >
-		    <a href="index.html" data-transition="slide" data-direction="reverse">Discover</a>
-		  </li>
-		  <li data-theme="a" >
-                    <a href="stay.html" data-transition="slide" data-direction="reverse">Stay</a>
-		  </li>
-		  <li data-theme="a" >
-		    <a data-rel="close" data-corner="false" data-transition="slide">Plan</a>
-		  </li>
-		  <li data-theme="a" >
-		    <a href="#" data-transition="slide">Account</a>
-		  </li>
-		  <li data-theme="a" data-icon="gears">
-		    <a href="#" data-transition="slide">Preference</a>
-		  </li>
-		</ul>
-              </div>
-	  <!-- menu-bar end -->
-	
 	  <!-- adding menu button to header -->
             <div data-role="header" data-position="fixed">
-	      <a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-btn-right ui-icon-alt" data-inline="true"></a>
+	      <a href="#slide-menu" data-icon="bars" data-iconpos="notext" data-theme="d" class="ui-btn-right ui-icon-alt" data-iconshadow="false" data-inline="true"></a>
               <h2>Route Planner</h2>
             </div>
 	  <!-- end -->
@@ -185,7 +172,6 @@ JQM.geo = {
                         <h1 class="ui-gmap-marker-title wrap"></h1>
                       </a>
                     </li>
-                    <li id="show-more"><a href=""><h1>Show more</h1></a></li>
                 </ul>
             </div>
         
