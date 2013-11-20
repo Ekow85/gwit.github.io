@@ -5,10 +5,26 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<title>DISCOVER</title> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
-	<link rel="stylesheet" href="idangerous.swiper.css"/>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
-	<script defer src="idangerous.swiper-2.3.min.js"></script>
+	<script src="underscore.js"></script>    
+    	<script src="backbone.js"></script>
+
+	<script type="text/template" id="activity-list-item-template">    
+      	  <li><a href="#activity-details" identifier="<%= id %>"><%= date %> - <%= type %></a></li>
+    	</script>
+    
+	<script type="text/template" id="activity-details-template">    
+          <h3><%= type %></h3>
+          <ul data-role="listview" id="activitiy-fields" data-inset="true">
+            <li>Date: <%= date %></li>
+            <li>Minutes: <%= minutes %></li>
+            <li>Distance: <%= distance %></li>
+            <li>Comments: <%= comments %></li>
+          </ul>
+    	</script>
+    <!-- App specific scripts -->
+   	<script src="app.js"></script>
 	<script type="text/javascript">
 	/*
 	Or with jQuery/Zepto
@@ -23,7 +39,6 @@
 	    //etc..
 	  });
 	})
-
 	</script>
 </head> 
 
@@ -32,51 +47,30 @@
 <!-- home page start-->
 	<div data-role="page" id="discover">
         
-          <!-- menu-bar begin -->
-            <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+       <!-- begin slide panel -->
+	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+	      <h3>header</h3>
+		<a data-rel="close" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
+		<a href="stay.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
+		<a href="plan.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
+		<a href="#" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Account</a>
+		<a href="#" data-icon="gear" data-role="button" data-corners="false" data-theme="a">Preference</a>
+	        <p>
+		</p>
+	    </div>
+<!-- end slide panel -->
 
-		<ul data-role="listview" data-inset="false">
-	          <li data-role="list-divider" role="heading">
-                    header
-                  </li>
-		  <li data-theme="a" >
-		    <a data-rel="close" data-transition="slide" data-direction="reverse">Discover</a>
-		  </li>
-		  <li data-theme="a" >
-                    <a href="stay.html" data-transition="slide" data-direction="reverse">Stay</a>
-		  </li>
-		  <li data-theme="a" >
-		    <a href="plan.html" data-corner="false" data-transition="slide">Plan</a>
-		  </li>
-		  <li data-theme="a" >
-		    <a href="#" data-transition="slide">Account</a>
-		  </li>
-		  <li data-theme="a">
-		    <a href="#" data-transition="slide">Preference</a>
-		  </li>
-		</ul>
-              </div>
-	  <!-- menu-bar end -->
 	
 	  <!-- adding menu button to header -->
             <div data-role="header">
-	      <a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-icon-alt ui-btn-right" data-inline="true"></a>
+	      <a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-icon-alt ui-btn-right" data-iconshadow="false" data-theme="d" data-inline="true"></a>
               <h2>Discover</h2>
             </div>
 	  <!-- end -->
             
 	  <!-- content -->
             <div data-role="content">
-                <div data-role="" href="">
-		  <p>this first</p>
-		  <div id="map-canvas"></div>
-		</div>
-		<div data-role="" href="">
-		  <p>this second</p>
-		</div>
-		<div data-role="" href="">
-		  <p>this third</p>
-		</div>
+		
             </div>
           <!-- end -->
 
@@ -86,6 +80,16 @@
 
         </div>
 <!-- /page -->
+	
+    <div data-role="page" id="activity-details" data-add-back-btn="true">
+      <div data-role="header">
+        <a href="#" data-role="button" data-icon="arrow-d" id="edit-activity-button" class="ui-btn-right">Edit</a>
+        <h1>Activity Details</h1>
+      </div>
+      <div data-role="content" id="activity-details-content">
+          <!-- the contents of the list view will be rendered via the backbone view -->
+      </div>
+    </div>
 
 </body>
 </html>
