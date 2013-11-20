@@ -2,13 +2,18 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/> 
 	<title>STAY</title> 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="idangerous.swiper.css"/>
+	<style>
+         
+        </style>
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	<script defer src="idangerous.swiper-2.3.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="jquery.ui.map.js"></script>
 	<script type="text/javascript">
 	/*
 	Or with jQuery/Zepto
@@ -23,13 +28,55 @@
 	    //etc..
 	  });
 	})
+	</script>
 
+	<script type="text/javascript">
+	 $(document).bind("mobileinit", function () {
+            $.mobile.ajaxEnabled = false;
+        });
+
+        $(Start);
+
+        function Start() {
+            $("#map_canvas .ui-collapsible-heading").click(function () {
+                var locations = [
+                  ['<br/>Main Office', 31.590496, 34.561981, 4],
+                  ['Sensor 16<br/>User Name: 16_DE-1R', 31.590595, 34.562980, 5],
+                  ['Sensor 17<br/>User Name: 17_TEN-2MP', 31.590694, 34.563979, 3],
+                  ['Sensor 18<br/>User Name: 18_TEN-2MP', 31.590793, 34.564978, 2],
+                ];
+
+                var map = new google.maps.Map(document.getElementById('map_canvas'), {
+                    zoom: 17,
+                    center: new google.maps.LatLng(31.590892, 34.561977),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+
+                var infowindow = new google.maps.InfoWindow();
+
+                var marker, i;
+
+                for (i = 0; i < locations.length; i++) {
+                    marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                        map: map
+                    });
+
+                    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                        return function () {
+                            infowindow.setContent(locations[i][0]);
+                            infowindow.open(map, marker);
+                        }
+                    })(marker, i));
+                }
+            });
+        }
 	</script>
 </head> 
 
 <body> 
 <!-- begin stay page -->
-  <div data-role="page" id="stay-home">
+  <div data-role="page" id="stay">
 
 	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
 	      <h3>header</h3>
@@ -109,13 +156,11 @@
 
 <!-- begin collapsible data set -->
 		    <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
-                      <div data-role="collapsible">
+                      <div id="map_content" data-role="collapsible">
                         <h3>
-                            Map Header
+                            Map
                         </h3>
-                        <div data-controltype="textblock">
-			  <div id="map_canvas"></div>
-                        </div>
+			<div id="map_canvas" style="width:100%; height:300px;"></div>
                      </div>
                    </div>
 <!-- end collapsible data set-->
