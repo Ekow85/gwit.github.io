@@ -1,0 +1,34 @@
+[
+        {
+            "id":1,
+            "category": "Historical",
+            "site": "Cape Coast Castle",
+            "distance": "3 miles",
+            "description": "Eerily awesome",
+            "minutes": 36
+        },
+        {
+            "id":2,
+            "category": "Spotlights",
+            "site": "National Theatre",
+            "distance": "6 miles",
+            "description": "Fun !",
+            "minutes": 30
+        },
+        {
+            "id":3,
+            "category": "Safari",
+            "site": "Paga Croccodile Pond",
+            "distance": "2.5 miles",
+            "description": "...",
+            "minutes": 45
+        },
+        {
+            "id":4,
+            "category": "Relaxation",
+            "site": "Boti Falls",
+            "distance": "Long",
+            "description": "Refreshing !",
+            "minutes": 75
+        }
+]
