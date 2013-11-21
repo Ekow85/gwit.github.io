@@ -1,5 +1,8 @@
-##Included swipe libs
-- iDangerous `swiper`
--Hammer.js
--touch swipe
+##Included libs
+- jQuery core
+- jQuery mobile
+- idangero.us `swiper`
+- Backbonejs
+- underscorejs
+
 This feels a bit hackerish now don't it ?
