@@ -1,0 +1,54 @@
+[
+        {
+            "id":1,
+            "site": "Cape Coast Castle"
+        },
+        {
+            "id":2,
+            "site": "National Theatre"
+        },
+        {
+            "id":3,
+            "site": "Paga Croccodile Pond"
+        },
+        {
+            "id":4,
+            "site": "Boti Falls"
+        },
+        {
+            "id":5,
+            "site": "Kintampo Falls"
+        },
+        {
+            "id":6,
+            "site": "Lake Volta"
+        },
+        {
+            "id":7,
+            "site": "National Museum"
+        },
+        {
+            "id":8,
+            "site": "The village on Stilts of Nzulezo"
+        },
+        {
+            "id":9,
+            "site": "Aburi Botanical Gardens"
+        },
+        {
+            "id":10,
+            "site": "Okomfo Anokye's Shrine"
+        },
+        {
+            "id":11,
+            "site": "Lake Bosomtwi"
+        },
+        {
+            "id":12,
+            "site": "Bonwire"
+        },
+        {
+            "id":13,
+            "site": "Manhyia Palace Museum"
+        }
+]
