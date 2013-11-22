@@ -13,9 +13,8 @@
  *
 */
 
-/* ===============================================================
-Basic Swiper Styles 
-================================================================*/
+/*
+Basic Swiper Styles */
 .swiper-container {
 	margin:0 auto;
 	position:relative;
@@ -77,10 +76,6 @@ Basic Swiper Styles
 	-ms-touch-action: pan-x;
 }
 
-/* ===============================================================
-Your custom styles, here you need to specify container's and slide's
-sizes, pagination, etc.
-================================================================*/
 .swiper-container {
 	/* Specify Swiper's Size: */
 
@@ -121,9 +116,9 @@ sizes, pagination, etc.
 	/* Specific visible slide styling: */	
 
 }
-/* ===============================================================
+/*
 Pagination Styles
-================================================================*/
+*/
 .swiper-pagination-switch{
 	display:inline-block;
 	width:8px;
