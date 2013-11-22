@@ -1,28 +1,25 @@
 /*jslint browser: true */
 /*global _, jQuery, $, console, Backbone */
 
-var discover = {};
+var disc = {};
 
 (function($){
     
-    discover.Activity = Backbone.Model.extend({
+    disc.Activity = Backbone.Model.extend({
     });
     
-    discover.Activities = Backbone.Collection.extend({
-        model: discover.Activity,
-        url: "discover.json",
-        comparator: function(activity){
-            var date = new Date(activity.get('date'));
-            return date.getTime();
-        }
+    disc.Activities = Backbone.Collection.extend({
+        model: disc.Activity,
+        url: "js/disc.json",
     });
     
-    discover.ActivityListView = Backbone.View.extend({
+    disc.ActivityListView = Backbone.View.extend({
         tagName: 'ul',
         id: 'activities-list',
         attributes: {"data-role": 'listview'},
         
         initialize: function() {
+            this.collection.bind('add', this.render, this);
             this.template = _.template($('#activity-list-item-template').html());
         },
         
@@ -39,7 +36,7 @@ var discover = {};
                     $renderedItem.jqmData('activityId', activity.get('id'));  //set the data on it for use in the click event
                 $renderedItem.bind('click', function(){
                     //set the activity id on the page element for use in the details pagebeforeshow event
-                    $('#activity-details').jqmData('activityId', $(this).jqmData('activityId'));  //'this' represents the element being clicked
+		    $('#activity-sub-list').jqmData('activityId', $(this).jqmData('activityId'));  //'this' represents the element being clicked
                 });
                 listView.append($renderedItem);
             });
@@ -49,10 +46,10 @@ var discover = {};
         }
     });
     
-    discover.ActivityDetailsView = Backbone.View.extend({
+    disc.ActivityDetailsView = Backbone.View.extend({
         //since this template will render inside a div, we don't need to specify a tagname
         initialize: function() {
-            this.template = _.template($('#activity-details-template').html());
+	    this.template = _.template($('#activity-sub-list-template').html());
         },
         
         render: function() {
@@ -66,28 +63,28 @@ var discover = {};
         }
     });
     
-    	discover.initData = function(){
-        discover.activities = new discover.Activities();
-        discover.activities.fetch({async: false});  // use async false to have the app wait for data before rendering the list
+    disc.initData = function(){
+        disc.activities = new disc.Activities();
+        disc.activities.fetch({async: false});  // use async false to have the app wait for data before rendering the list
     };
     
 }(jQuery));
 
-$('#disc_sugg').live('pageinit', function(event){
-    var activitiesListContainer = $('#disc_sugg').find(":jqmData(role='content')"),
+$('#discover').live('pageinit', function(event){
+    var activitiesListContainer = $('#discover').find(":jqmData(role='listview')"),
         activitiesListView;
-    discover.initData();
-    activitiesListView = new discover.ActivityListView({collection: discover.activities, viewContainer: activitiesListContainer});
+    disc.initData();
+    activitiesListView = new disc.ActivityListView({collection: disc.activities, viewContainer: activitiesListContainer});
     activitiesListView.render();
 });
 
-$('#activity-details').live('pagebeforeshow', function(){
-    console.log('activityId: ' + $('#activity-details').jqmData('activityId'));
-    var activitiesDetailsContainer = $('#activity-details').find(":jqmData(role='content')"),
+$('#activity-sub-list').live('pagebeforeshow', function(){
+    console.log('activityId: ' + $('#activity-sub-list').jqmData('activityId'));
+    var activitiesDetailsContainer = $('#activity-sub-list').find(":jqmData(role='listview')"),
         activityDetailsView,
-        activityId = $('#activity-details').jqmData('activityId'),
-        activityModel = discover.activities.get(activityId);
+        activityId = $('#activity-sub-list').jqmData('activityId'),
+        activityModel = disc.activities.get(activityId);
     
-    activityDetailsView = new discover.ActivityDetailsView({model: activityModel, viewContainer: activitiesDetailsContainer});
-    activityDetailsView.render();
+   activityDetailsView = new disc.ActivityDetailsView({model: activityModel, viewContainer: activitiesDetailsContainer});
+   activityDetailsView.render();
 });
