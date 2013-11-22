@@ -19,7 +19,7 @@
         </script>
     
         <script type="text/template" id="activity-sub-list-template">    
-          <li><a href="#" identifier="<%= id %>"><%= site %></a></li>
+          <li identifier="<%= id %>"><%= site %></li>
         </script>
 
 	<script defer src="js/vendor/idangerous.swiper-2.3.min.js"></script>
@@ -45,12 +45,12 @@
 <!-- home page start-->
 	<div data-role="page" id="discover">
         
-       <!-- begin slide panel -->
+<!-- begin slide panel -->
 	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
 	      <h3>header</h3>
-		<a data-rel="close" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
-		<a href="stay.html" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
-		<a href="plan.html" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
+		<a data-rel="close" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
+		<a href="stay.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
+		<a href="plan.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
 		<a href="#" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Account</a>
 		<a href="#" data-icon="gear" data-role="button" data-corners="false" data-theme="a">Preference</a>
 	    </div>
@@ -84,6 +84,21 @@
 		 <div class="swiper-slide red-slide"> 
 		   <img src="style/images/4.jpg"/>
       		 </div>
+		<div class="swiper-slide green-slide">
+		   <img src="style/images/5.jpg"/>
+      	         </div>
+                 <div class="swiper-slide blue-slide">
+		   <img src="style/images/6.jpg"/>
+      	         </div>
+                 <div class="swiper-slide orange-slide"> 
+		   <img src="style/images/7.jpg"/>
+      		 </div>
+		 <div class="swiper-slide red-slide"> 
+		   <img src="style/images/8.jpg"/>
+      		 </div>
+		 <div class="swiper-slide red-slide"> 
+		   <img src="style/images/9.jpg"/>
+      		 </div>
                </div>
 	     </div>
 <!-- /SLIDES -->
@@ -91,20 +106,32 @@
 <!-- divider -->
 	      <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
 <!-- /divider -->
-	      <a href="#disc_sugg" data-role="button" data-corners="false" data-icon="arrow-r" data-iconpos="right" data-theme="a" data-transition="slide">Suggestions</a>
 
             </div>
           <!-- end -->
 
-	    <div data-role="listview"></div>
+	    <div data-role="listview">
+	    </div>
 
         </div>
 <!-- /page -->
 
 <!-- suggestions page -->
     <div data-role="page" id="activity-sub-list">
+
+<!-- begin slide panel -->
+	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
+	      <h3>header</h3>
+		<a data-rel="close" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
+		<a href="stay.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
+		<a href="plan.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
+		<a href="#" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Account</a>
+		<a href="#" data-icon="gear" data-role="button" data-corners="false" data-theme="a">Preference</a>
+	    </div>
+<!-- end slide panel -->
+
       <div data-role="header" data-theme="a" data-position="fixed">
-	<a data-rel="back" data-icon="back">Vane</a>
+	<a data-rel="back" data-icon="back" data-transition="slide">Vane - Discover</a>
 	<h1></h1>
 	<a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-icon-alt ui-btn-right" data-iconshadow="false" data-theme="d" data-inline="true"></a>
       </div>
@@ -113,6 +140,66 @@
           <!-- the contents of the list view will be rendered via the backbone view -->
         </div>
       </div>
+
+            <div data-role="content">
+
+<!-- SLIDES -->  
+             <div class="swiper-container">
+               <div class="swiper-wrapper">
+		 <div class="swiper-slide green-slide">
+		   <img src="style/images/default.jpg"/>
+      	         </div>
+                 <div class="swiper-slide blue-slide">
+		   <img src="style/images/default.jpg"/>
+      	         </div>
+               </div>
+	     </div>
+<!-- /SLIDES -->
+	      <hr style="height:2px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
+<!-- booking a spot -->
+<div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+    <form>
+        <div style="padding:10px 20px;">
+            <h3>Sign In</h3>
+            <label for="un" class="ui-hidden-accessible">Username:</label>
+            <input type="text" name="user" id="un" value="" placeholder="username" data-theme="a">
+            <label for="pw" class="ui-hidden-accessible">Password:</label>
+            <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a">
+            <button type="submit" data-theme="b" data-icon="check">Sign in</button>
+        </div>
+    </form>
+</div>
+<!-- end booking a spot -->
+        	    <div class="ui-grid-a">
+            	      <div class="ui-block-a">
+                        <a data-role="button" data-corners="false" href="#">map</a>
+            	      </div>
+            	      <div class="ui-block-b">
+                        <a data-role="button" data-transition="pop" href="#popupLogin" data-rel="popup" data-position-to="window" data-corners="false">Book</a>
+            	      </div>
+        	    </div>
+<!-- begin collapsible data set -->
+		    <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
+		      <div data-controltype="textblock">
+		      <p>
+			<h4><div data-role="listview" id="activity-sub-list-content">
+			  <!-- the contents of the list view will be rendered via the backbone view -->
+			</div></h4>
+			
+		        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur
+		        adipiscing dignissim. Aenean lectus erat, ornare ultrices pharetra ac,
+		        dignissim vel lacus. Vivamus turpis ante, lacinia placerat ultrices non,
+		        suscipit at arcu. Nullam ut fringilla eros.
+		       </p>
+        	     </div>
+                    </div>
+<!-- end collapsible data set-->
+            </div>
+            <!--<div data-role="footer">
+                <h4>footer here</h4>
+            </div>-->
+        </div>
+
     </div>
 <!-- /suggestions page-->
 </body>
