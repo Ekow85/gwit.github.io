@@ -3,29 +3,26 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
-	<title>DISCOVER</title> 
+	<title>DISCOVER</title>
+<!-- vendor calls -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" href="style/idangerous.swiper.css"/>
 	<script src="http://code.jquery.com/jquery-1.7.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	<script src="js/vendor/underscore.js"></script>    
     	<script src="js/vendor/backbone.js"></script>
-	<!-- templates -->
-    <script type="text/template" id="activity-list-item-template">    
-      <li><a href="#activity-details" identifier="<%= id %>"><%= category %> - <%= site %></a></li>
-    </script>
-    
-    <script type="text/template" id="activity-details-template">    
-        <h3><%= site %></h3>
-        <ul data-role="listview" id="activitiy-fields" data-inset="true">
-          <li>Category: <%= category %></li>
-          <li>Minutes: <%= minutes %></li>
-          <li>Distance: <%= distance %></li>
-          <li>Description: <%= description %></li>
-        </ul>
-    </script>
-	<script defer src="js/vendor/idangerous.swiper-2.3.min.js"></script>
+<!-- app scripts -->
 	<script src="js/app.js"></script>
+	<!-- templates -->
+        <script type="text/template" id="activity-list-item-template">    
+          <li><a href="#activity-sub-list" identifier="<%= id %>"><%= site %></a></li>
+        </script>
+    
+        <script type="text/template" id="activity-sub-list-template">    
+          <li><a href="#" identifier="<%= id %>"><%= site %></a></li>
+        </script>
+
+	<script defer src="js/vendor/idangerous.swiper-2.3.min.js"></script>
 	<script type="text/javascript">
 	/*
 	call swiper with jquery
@@ -51,45 +48,41 @@
        <!-- begin slide panel -->
 	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
 	      <h3>header</h3>
-		<a data-rel="close" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
-		<a href="stay.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
-		<a href="plan.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
+		<a data-rel="close" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
+		<a href="stay.html" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
+		<a href="plan.html" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
 		<a href="#" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Account</a>
 		<a href="#" data-icon="gear" data-role="button" data-corners="false" data-theme="a">Preference</a>
 	    </div>
 <!-- end slide panel -->
 
 	  <!-- adding menu button to header -->
-            <div data-role="header">
+            <div data-role="header" data-position="fixed" data-theme="a">
+              <h2>Vane</h2>
 	      <a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-icon-alt ui-btn-right" data-iconshadow="false" data-theme="d" data-inline="true"></a>
-              <h2>Discover</h2>
             </div>
 	  <!-- end -->
+	    <div data-role="header" data-theme="c">
+		      
+	    </div>
             
 	  <!-- content -->
             <div data-role="content">
-
+ 
 <!-- SLIDES -->  
              <div class="swiper-container">
                <div class="swiper-wrapper">
-<!--First Slide-->
-     	         <div class="swiper-slide red-slide"> 
-<!-- Any HTML content of the first slide goes here -->
-		   <div class="title">some featured content here</div>
+     	         <div class="swiper-slide green-slide">
+		   <img src="style/images/1.jpg"/>
       	         </div>
-<!-- Second Slide -->
                  <div class="swiper-slide blue-slide">
-<!-- Any HTML content of the second slide goes here -->
-		   <div class="title">more featured content</div>
+		   <img src="style/images/2.jpg"/>
       	         </div>
-<!--Third Slide-->
                  <div class="swiper-slide orange-slide"> 
-<!-- Any HTML content of the third slide goes here -->
- 		   <div class="title">...</div>
+		   <img src="style/images/3.jpg"/>
       		 </div>
-		 <div class="swiper-slide green-slide"> 
-<!-- Any HTML content of the third slide goes here -->
- 		   <div class="title">&lt ... &gt</div>
+		 <div class="swiper-slide red-slide"> 
+		   <img src="style/images/4.jpg"/>
       		 </div>
                </div>
 	     </div>
@@ -98,45 +91,29 @@
 <!-- divider -->
 	      <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
 <!-- /divider -->
-
-	 <a href="#disc_sugg" data-role="button" data-corners="false" data-icon="arrow-r" data-iconpos="right" data-theme="a" data-transition="slide">Suggestions</a>
-
-<!-- divider -->
-	      <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
-<!-- /divider -->
+	      <a href="#disc_sugg" data-role="button" data-corners="false" data-icon="arrow-r" data-iconpos="right" data-theme="a" data-transition="slide">Suggestions</a>
 
             </div>
           <!-- end -->
 
-            <!--<div data-role="footer">
-                <h4>footer here</h4>
-            </div>-->
+	    <div data-role="listview"></div>
 
         </div>
 <!-- /page -->
 
 <!-- suggestions page -->
-    <div data-role="page" id="disc_sugg" data-add-back-btn="true">
-      <div data-role="header">
-        <h1></h1>
-
+    <div data-role="page" id="activity-sub-list">
+      <div data-role="header" data-theme="a" data-position="fixed">
+	<a data-rel="back" data-icon="back">Vane</a>
+	<h1></h1>
+	<a href="#slide-menu" data-icon="bars" data-iconpos="notext" class="ui-icon-alt ui-btn-right" data-iconshadow="false" data-theme="d" data-inline="true"></a>
       </div>
-      <div data-role="content">
+      <div data-role="header" data-theme="c" id="sub-header">
+	<div data-role="listview" id="activity-sub-list-content">
           <!-- the contents of the list view will be rendered via the backbone view -->
+        </div>
       </div>
     </div>
 <!-- /suggestions page-->
-
-<!-- suggestions details -->
-    <div data-role="page" id="activity-details" data-add-back-btn="true">
-      <div data-role="header">
-
-        <h1>Details</h1>
-      </div>
-      <div data-role="content" id="activity-details-content">
-          <!-- the contents of the list view will be rendered via the backbone view -->
-      </div>
-    </div>
-<!-- /suggestions details -->
 </body>
 </html>
