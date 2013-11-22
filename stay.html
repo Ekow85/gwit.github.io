@@ -75,9 +75,9 @@
 <!-- begin slide panel -->
 	    <div data-role="panel" id="slide-menu" data-display="push" data-theme="a" data-position="right">
 	      <h3>header</h3>
-		<a href="index.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
-		<a data-rel="close" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
-		<a href="plan.html" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
+		<a href="index.html" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Discover</a>
+		<a data-rel="close" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide" data-direction="reverse">Stay</a>
+		<a href="plan.html" rel="external" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Plan</a>
 		<a href="#" data-role="button" data-corners="false" data-theme="a" data-transition="slide">Account</a>
 		<a href="#" data-icon="gear" data-role="button" data-corners="false" data-theme="a">Preference</a>
 	        <p>
@@ -85,7 +85,7 @@
 	    </div>
 <!-- end slide panel -->
 
-            <div data-role="header">
+            <div data-role="header" data-theme="a">
 	      <a href="#slide-menu" data-icon="bars" data-iconpos="notext" data-iconshadow="false" data-theme="d" class="ui-btn-right ui-icon-alt"></a>
               <h2>Accomodation</h2>
             </div>
@@ -95,30 +95,22 @@
 <!-- SLIDES -->  
              <div class="swiper-container">
                <div class="swiper-wrapper">
-<!--First Slide-->
-     	         <div class="swiper-slide red-slide"> 
-<!-- Any HTML content of the first slide goes here -->
-		   <div class="title">slide &gt</div>
+		 <div class="swiper-slide green-slide">
+		   <img src="style/images/1.jpg"/>
       	         </div>
-<!-- Second Slide -->
                  <div class="swiper-slide blue-slide">
-<!-- Any HTML content of the second slide goes here -->
-		   <div class="title">&lt slide again &gt</div>
+		   <img src="style/images/2.jpg"/>
       	         </div>
-<!--Third Slide-->
                  <div class="swiper-slide orange-slide"> 
-<!-- Any HTML content of the third slide goes here -->
- 		   <div class="title">&lt try dragging &gt</div>
+		   <img src="style/images/3.jpg"/>
       		 </div>
-<!-- Etc.. -->
+		 <div class="swiper-slide red-slide"> 
+		   <img src="style/images/4.jpg"/>
+      		 </div>
                </div>
 	     </div>
 <!-- /SLIDES -->
-
-<!-- divider -->
-	      <hr style="height:3px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
-<!-- /divider -->
-
+	      <hr style="height:2px; background-color:#ccc; border:0; margin-top:12px; margin-bottom:12px;">
 <!-- booking a spot -->
 <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
     <form>
@@ -135,7 +127,7 @@
 <!-- end booking a spot -->
         	    <div class="ui-grid-a">
             	      <div class="ui-block-a">
-                        <a data-role="button" data-corners="false" href="#home">Listen</a>
+                        <a data-role="button" data-corners="false" href="#">map</a>
             	      </div>
             	      <div class="ui-block-b">
                         <a data-role="button" data-transition="pop" href="#popupLogin" data-rel="popup" data-position-to="window" data-corners="false">Book</a>
@@ -143,15 +135,16 @@
         	    </div>
 <!-- begin collapsible data set -->
 		    <div data-role="collapsible-set" data-theme="a" data-content-theme="a">
-		      <div data-role="collapsible">
-			<h3>
-			    Description Header
-			</h3>
-                          <p>
-                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur adipiscing dignissim. Aenean lectus erat, ornare ultrices pharetra ac, dignissim vel lacus. Vivamus turpis ante, lacinia placerat ultrices non, suscipit at arcu. Nullam ut fringilla eros.
-                          </p>
-		      </div>
-                     </div>
+		      <div data-controltype="textblock">
+		    <p>
+		    <b></b>
+		        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent consectetur
+		        adipiscing dignissim. Aenean lectus erat, ornare ultrices pharetra ac,
+		        dignissim vel lacus. Vivamus turpis ante, lacinia placerat ultrices non,
+		        suscipit at arcu. Nullam ut fringilla eros.
+		    </p>
+        </div>
+                    </div>
 <!-- end collapsible data set-->
 
 <!-- begin collapsible data set -->
